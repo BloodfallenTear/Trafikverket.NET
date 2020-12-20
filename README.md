@@ -1,11 +1,13 @@
-# Trafikverket.NET v1.2.0
+# NOTE: README.md is W.I.P
+
+# TrafikverketSharp v2.0.0
 A C# .NET Standard library for Trafikverket. This is **not** an official Trafikverket library.
 
 ## Documentation
 All of the XML documentation found in this API library comes from [Trafikverket](https://api.trafikinfo.trafikverket.se/API/Model).
 
 ## Support
-This project supports .NET Standard 2.0, .NET Framework 4.5, .NET Framework 4.6 and .NET Framework 4.7.
+This project supports .NET Standard 2.1!
 
 ## NuGet
 Download the library via [NuGet](https://www.nuget.org/packages/Trafikverket.NET/)!
@@ -76,7 +78,7 @@ This project uses the following dependencies:
 - [x] RoadGeometry 1 - Vägens geometri relaterat till det data vi tillhandahåller från PMS-systemen med data om beläggningar och mätdata. Vi kan ej garantera att geometrin är dagsaktuell från NVDB. Datum för när data hämtades framgår av posten TimeStamp. 
 
 ## Code of Conduct
-This repository's Code of Conduct can be found here: [CODE_OF_CONDUCT.md](https://github.com/BloodfallenTear/Trafikverket.NET/blob/master/CODE_OF_CONDUCT.md)
+This repository's Code of Conduct can be found here: [CODE_OF_CONDUCT.md](https://github.com/BloodfallenTear/TrafikverketSharp/blob/master/CODE_OF_CONDUCT.md)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/BloodfallenTear/Trafikverket.NET/blob/master/LICENSE.md) file for details. © BloodfallenTear 2019
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/BloodfallenTear/TrafikverketSharp/blob/master/LICENSE.md) file for details. © BloodfallenTear 2020

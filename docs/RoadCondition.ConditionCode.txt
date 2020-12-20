@@ -1,7 +1,0 @@
-https://api.trafikinfo.trafikverket.se/API/Model
-
-Väglagskod
-1 - normalt
-2 - besvärligt (risk för)
-3 - mycket besvärligt
-4 - is- och snövägbana 

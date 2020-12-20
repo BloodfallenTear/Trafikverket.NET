@@ -1,7 +1,0 @@
-https://api.trafikinfo.trafikverket.se/API/Model
- 	
-Ruttägare
-1 	Trafiken.nu
-2 	Ums
-3 	Pendlingsstråk
-4 	Trafikverket

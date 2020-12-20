@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
+    <OutputType>Library</OutputType>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>BloodfallenTear</Authors>
+    <Description>An unofficial .NET wrapper for the Trafikverket API.</Description>
+    <PackageTags>trafikverket, trafikverket-api, dotnet, csharp, vb, fsharp</PackageTags>
+    <Copyright>Copyright (c) 2020 BloodfallenTear</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <RepositoryUrl>https://github.com/BloodfallenTear/TrafikverketSharp</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageProjectUrl>https://github.com/BloodfallenTear/TrafikverketSharp</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/BloodfallenTear/TrafikverketSharp/master/LICENSE.md</PackageLicenseUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <NoWarn>1701;1702;IDE0002;IDE0003;IDE0022;IDE0049;IDE0059;IDE0063;CA1822</NoWarn>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>

@@ -1,9 +1,0 @@
-https://api.trafikinfo.trafikverket.se/API/Model
-
-Åtgärd
->Förebyggande halkbekämpning
->Halkbekämpning
->Ishyvling
->Plogning
->Sandning
->Annat 

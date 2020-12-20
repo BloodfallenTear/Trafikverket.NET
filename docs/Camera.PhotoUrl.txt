@@ -1,6 +1,0 @@
-Följande queryparametrar kan användas efter urlen till bilden.
-maxage - Ange hur gamla bilder i minuter du tillåter. Är bilden äldre än det du anger returneras istället en bild med texten en "aktuell bild saknas". Ex: maxage=15 visar endast bilden om den är nyare än 15 minuter
-type=fullsize - Om bilden har en högupplöst bild (anges i HasFullSizePhoto) kan man få den genom att ange type=fullsize
-type=sketch - Om bilden har en översiktsbild (anges i HasSketchImage) kan man få den genom att ange type=sketch
-type=thumbnail - Vill man ha en mindre version (180px*135px) av bilden anges type=thumbnail
-Ex: https://api.trafikinfo.trafikverket.se/v1.3/Images/​TrafficFlowCamera_39635270.Jpeg?type=fullsize&maxage=15

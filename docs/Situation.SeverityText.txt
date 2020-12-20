@@ -1,7 +1,0 @@
-https://api.trafikinfo.trafikverket.se/API/Model
-
-Påverkan:
->Ingen påverkan
->Liten påverkan
->Stor påverkan
->Mycket stor påverkan 

@@ -1,8 +1,0 @@
-https://api.trafikinfo.trafikverket.se/API/Model
-
-Anger restidsstatus för sträckan
-freeflow - fri framkomlighet
-heavy - svår framkomlighet
-congested - mycket svår framkomlighet
-impossible - framkomlighet omöjlig
-unknown - framkomlighet okänd 
