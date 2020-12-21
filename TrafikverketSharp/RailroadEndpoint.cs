@@ -87,13 +87,14 @@ namespace TrafikverketSharp
         /// <exception cref="InternalServerErrorException">Thrown when "internt serverfel."</exception>
         /// <exception cref="NotImplementedException">Thrown when "servern stödjer inte en funktion som efterfrågades av klienten."</exception>
         /// <returns></returns>
-        public TrainStation GetTrainStation(RequestBuilder requestBuilder)
+        public TrainStation[] TrainStation(QueryBuilder queryBuilder) //These methods will provide a simple interface to request information from a single specified endpoint.
+                                                                               //Only the inside of QUERY will be editable
         {
             if(Trafikverket.HttpClient.TrySend(out var response, out var exception, new HttpRequestMessage(HttpMethod.Post, "https://api.trafikinfo.trafikverket.se/v2/data.json")
             {
                 Content = new StringContent($"<REQUEST>" +
                                             $"  <LOGIN authenticationkey= \"{Trafikverket.Key}\"/>" +
-                                            $"  <QUERY objecttype=\"TrainStation\" schemaversion=\"1\" limit=\"2\">" +
+                                            $"  <QUERY objecttype=\"TrainStation\" schemaversion=\"1.4\" limit=\"2\">" +
                                             $"      <FILTER>" +
                                             $"          <EQ name=\"Advertised\" value=\"true\"/>" +
                                             $"      </FILTER>" +
@@ -102,15 +103,15 @@ namespace TrafikverketSharp
                                             $"</REQUEST>")
             }))
             {
+                if (exception != null)
+                    throw exception;
 
+                var obj = JsonConvert.DeserializeObject<TrafikverketResponse>(response.Content.ReadAsString());
+                return (TrainStation[])obj.Response.Result[0].Type;
             }
 
-            Console.WriteLine(response);
-            Console.WriteLine(JObject.Parse(response.Content.ReadAsStringAsync().ConfigureAwait(false).GetAwaiter().GetResult()));
-
-            var deserialized = JsonConvert.DeserializeObject<TrafikverketResponse>(response.Content.ReadAsString());
-            Console.WriteLine($"Result Length: {deserialized.Response.Result.Length}");
-            Console.WriteLine($"Result Type Length: {deserialized.Response.Result[0].Error.Message}");
+            if (exception != null)
+                throw exception;
 
             return null;
         }
