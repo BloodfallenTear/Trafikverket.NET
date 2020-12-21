@@ -33,3 +33,12 @@ Nummer | Län
 23 | Jämtlands län
 24 | Västerbottens län
 25 | Norrbottens län
+
+## Felmeddelanden
+### Om något med anropet går fel så returneras någon av följande HTTP statuskoder: 
+Kod | Meddelande
+---:|:----------
+206 | *Partial Content* - svaret är för stort. Maximalt tillåten datamängd kommer at returneras följt av ERROR som meddelar att svaret inte är komplett.
+401 |	*Unauthorized* - misslyckad autentisering
+500	| *Internal Server Error* - internt serverfel.
+501	| *Not Implemented* - servern stödjer inte en funktion som efterfrågades av klienten.
