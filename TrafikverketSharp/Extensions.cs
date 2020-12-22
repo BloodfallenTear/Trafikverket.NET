@@ -21,6 +21,9 @@ namespace TrafikverketSharp
 
                     switch (response.StatusCode)
                     {
+                        case HttpStatusCode.OK:
+                        case HttpStatusCode.Accepted:
+                            break;
                         case HttpStatusCode.PartialContent:
                             exception = new PartialContentException("The server returned a 206 Partial Content.");
                             return false;

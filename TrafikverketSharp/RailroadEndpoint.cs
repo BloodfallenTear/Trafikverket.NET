@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using TrafikverketSharp.Exceptions;
 
 namespace TrafikverketSharp
@@ -75,34 +76,43 @@ namespace TrafikverketSharp
         internal TrafikverketResponseError() { }
     }
 
+    /// <summary>
+    /// Järnväg - Trafikinformation
+    /// </summary>
     public sealed class RailroadEndpoint
     {
+        internal RailroadEndpoint() { }
+
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="requestBuilder"></param>
+        /// <param name="queryBodyBuilder"></param>
         /// <exception cref="PartialContentException">Thrown when "svaret är för stort."</exception>
         /// <exception cref="BadRequestException">Thrown when a malformed request is sent.</exception>
         /// <exception cref="UnauthorizedException">Thrown when "misslyckad autentisering."</exception>
         /// <exception cref="InternalServerErrorException">Thrown when "internt serverfel."</exception>
         /// <exception cref="NotImplementedException">Thrown when "servern stödjer inte en funktion som efterfrågades av klienten."</exception>
         /// <returns></returns>
-        public TrainStation[] TrainStation(QueryBuilder queryBuilder) //These methods will provide a simple interface to request information from a single specified endpoint.
-                                                                               //Only the inside of QUERY will be editable
+        public TrainStation[] TrainStation(QueryBodyBuilder queryBodyBuilder) //These methods will provide a simple interface to request information from a single specified endpoint.
+                                                                              //Only the inside of QUERY will be editable
         {
-            if(Trafikverket.HttpClient.TrySend(out var response, out var exception, new HttpRequestMessage(HttpMethod.Post, "https://api.trafikinfo.trafikverket.se/v2/data.json")
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://api.trafikinfo.trafikverket.se/v2/data.json")
             {
                 Content = new StringContent($"<REQUEST>" +
-                                            $"  <LOGIN authenticationkey= \"{Trafikverket.Key}\"/>" +
+                                            $"  <LOGIN authenticationkey=\"{Trafikverket.Key}\"/>" +
                                             $"  <QUERY objecttype=\"TrainStation\" schemaversion=\"1.4\" limit=\"2\">" +
                                             $"      <FILTER>" +
                                             $"          <EQ name=\"Advertised\" value=\"true\"/>" +
                                             $"      </FILTER>" +
                                             $"      <INCLUDE>AdvertisedLocationName</INCLUDE>" +
                                             $"  </QUERY>" +
-                                            $"</REQUEST>")
-            }))
+                                            $"</REQUEST>", Encoding.UTF8, "application/xml")
+            };
+
+            if (Trafikverket.HttpClient.TrySend(out var response, out var exception, request))
             {
+                Console.WriteLine(response);
+
                 if (exception != null)
                     throw exception;
 

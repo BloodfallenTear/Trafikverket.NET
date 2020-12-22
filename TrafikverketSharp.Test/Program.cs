@@ -13,12 +13,24 @@ namespace TrafikverketSharp.Test
             if (!File.Exists("key"))
                 File.Create("key").Close();
 
-            using (var sw = new StreamReader("key"))
-                key = sw.ReadToEnd();
+            using (var sr = new StreamReader("key"))
+                key = sr.ReadToEnd();
 
             using(var trafikverket = new Trafikverket(key))
             {
-                var response = trafikverket.Railroad.TrainStation(new QueryBuilder
+                var requestBuilder = new RequestBuilder
+                {
+                    Query = new Query
+                    {
+
+                    },
+                    Filter = new Filter
+                    {
+
+                    }
+                };
+
+                var response = trafikverket.Railroad.TrainStation(new QueryBodyBuilder
                 {
                     
                 });

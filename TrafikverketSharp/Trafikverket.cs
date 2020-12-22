@@ -11,6 +11,9 @@ namespace TrafikverketSharp
         internal static HttpClient HttpClient { get; private set; }
         internal static String Key { get; private set; }
 
+        /// <summary>
+        /// Järnväg - Trafikinformation
+        /// </summary>
         public RailroadEndpoint Railroad { get; } = new RailroadEndpoint();
 
         private bool disposed = false;
